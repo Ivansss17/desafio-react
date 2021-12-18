@@ -1,10 +1,15 @@
 import logo from './logo.svg';
+
 import './App.css';
+import './menu.css';
+import Menu from './component/menu';
 
 function App() {
   return (
-    <div className="App">
+    <Menu/>
+    /* <div className="App">
       <header className="App-header">
+      
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -16,9 +21,9 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
-        </a>
+        </a> 
       </header>
-    </div>
+    </div> */
   );
 }
 
