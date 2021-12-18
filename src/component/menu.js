@@ -1,4 +1,5 @@
 import React from 'react'
+import CardsWidget from './CardsWidget'
 
 function Menu() {
     return (
@@ -9,6 +10,7 @@ function Menu() {
                     <li>Home</li>
                     <li>productos</li>
                     <li>Contacto</li>
+                    <CardsWidget/>
                 </ul>
             </nav>
         </div>
