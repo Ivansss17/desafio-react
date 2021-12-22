@@ -1,6 +1,7 @@
 import React from 'react'
 import CardsWidget from './CardsWidget'
 import SaludoMenu from './ItemListContainer'
+import ItemsCount from './itemsCount'
 
 
 
@@ -18,6 +19,7 @@ function Menu() {
                 </ul>
             </nav>
             <SaludoMenu saludo='hola mundo'/>
+            <ItemsCount/>
         </div>
         
     )
