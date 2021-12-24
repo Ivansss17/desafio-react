@@ -1,5 +1,6 @@
 import React from 'react'
 import CardsWidget from './CardsWidget'
+import Item from './Item'
 import SaludoMenu from './ItemListContainer'
 import ItemsCount from './itemsCount'
 
@@ -20,6 +21,7 @@ function Menu() {
             </nav>
             <SaludoMenu saludo='hola mundo'/>
             <ItemsCount/>
+            <Item/>
         </div>
         
     )
