@@ -1,8 +1,9 @@
-import logo from './logo.svg';
+
+
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
 import './menu.css';
-import Menu from './component/menu';
+import Menu from './component/Menu';
 
 function App() {
   return (

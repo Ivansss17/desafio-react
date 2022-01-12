@@ -1,29 +1,26 @@
+/* import { BrowserRouter , Routes, Route } from 'react-router-dom' */
 import React from 'react'
-import CardsWidget from './CardsWidget'
 import Item from './Item'
+
+import ItemDetailContainer from './ItemDetailContainer/ItemDetailContainer'
+
+
 import SaludoMenu from './ItemListContainer'
 import ItemsCount from './itemsCount'
+import NavBar from './NavBar'
 
 
 
 
 function Menu() {
     return (
-        <div className='divMenu'>
-            <h2>Bienvenidos a la tienda virtual</h2>
-            <nav className='navMenu'>
-                <ul>
-                    <li>Home</li>
-                    <li>productos</li>
-                    <li>Contacto</li>
-                    <CardsWidget/>
-                </ul>
-            </nav>
-            <SaludoMenu saludo='hola mundo'/>
+            <center>
+            <NavBar/>
+           <SaludoMenu saludo='hola mundo'/>
             <ItemsCount/>
-            <Item/>
-        </div>
-        
+           
+            <ItemDetailContainer/>
+            </center>
     )
 }
 
