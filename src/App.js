@@ -3,7 +3,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
 import './menu.css';
-import Menu from './component/Menu';
+import Menu from './component/Menu/Menu';
 
 function App() {
   return (

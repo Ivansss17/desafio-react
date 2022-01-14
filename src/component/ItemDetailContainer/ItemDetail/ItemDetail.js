@@ -1,4 +1,4 @@
-import imagen from '../../imagen.png'
+import imagen from './imagen.png'
 
 function ItemDetail({producto}) {
     console.log(producto)

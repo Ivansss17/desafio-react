@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from 'react'
-import { llamada } from './api'
+import { llamada } from '../api'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import ItemList from './ItemList'
 
