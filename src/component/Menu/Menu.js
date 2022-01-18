@@ -5,9 +5,11 @@ import React from 'react'
 import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer'
 
 
-import SaludoMenu from '../itemContainer/ItemListContainer'
+
 import ItemsCount from '../Contador/itemsCount'
 import NavBar from './NavBar'
+import ListProductos from '../itemContainer/ItemListContainer'
+import Marvelapi from '../marvel/marvel-api'
 
 
 
@@ -19,9 +21,12 @@ function Menu() {
             <NavBar/>
             
             <Routes>
-            <Route exact path='/saludo' element={<SaludoMenu saludo='hola mundo'/>}/>
+            <Route exact path='/categoria/:categoriaId' element={<ListProductos/>}/>
+            <Route exact path='/categoria' element={<ListProductos/>}/>
             <Route exact path='/ItemCount' element={<ItemsCount/>}/>
-            <Route exact path='/ItemDetail' element={<ItemDetailContainer/>}/>
+            <Route exact path='/detalle/:detalleId' element={<ItemDetailContainer/>}/>
+            
+          {/*   <Route exact path='/Marvel' element={<Marvelapi/>}/> */}
             </Routes>
             </BrowserRouter>
             </center>
