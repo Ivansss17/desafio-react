@@ -32,9 +32,9 @@ function Item({prod}) {
                               </Button>
 
                               <Modal show={show} onHide={handleClose}>
-                                <ModalHeader closeButton>
+                                <Modal.Header closeButton>
                                   <ModalTitle><img src={imagen} alt='1' className='w-50'/></ModalTitle>
-                                </ModalHeader>
+                                </Modal.Header>
                                 <ModalBody>Producto: {`${prod.nombre} - stock: ${prod.stock} - Precio: $${prod.precio}`}</ModalBody>
                                 <ModalFooter>
                                   <Button variant="secondary" onClick={handleClose}>
