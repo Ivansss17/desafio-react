@@ -3,6 +3,7 @@ import  { Button, ModalBody, ModalFooter,  ModalTitle,  }  from  'react-bootstra
 import Modal from 'react-bootstrap/Modal'
 import ModalHeader from 'react-bootstrap/esm/ModalHeader'
 import {useState} from 'react'
+import { Link } from 'react-router-dom'
 
 function Item({prod}) {
   const [show, setShow] = useState(false);
@@ -25,6 +26,7 @@ function Item({prod}) {
                               <img src={imagen} alt='1' className='w-50'/>
                               </div>
                               <div className='card-footer'> 
+                              <Link to={`/detalle/${prod.nombre}`}><Button>Comprar</Button></Link>
                               <Button variant="primary" onClick={handleShow}>
                                 Detalle
                               </Button>

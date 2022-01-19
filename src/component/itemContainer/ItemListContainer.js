@@ -49,7 +49,7 @@ const ListProductos = () =>{
               className="me-2"
               aria-label="Search"
             />
-            <Button variant="outline-success">Search</Button>
+            <Button variant="outline-success">buscar</Button>
           </Form>
           </center>
             {loading? <h3>Cargando...</h3>

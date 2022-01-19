@@ -1,4 +1,4 @@
-import React from 'react'
+/* import React from 'react'
 import { useEffect, useState } from 'react'
 
 function Marvelapi() {
@@ -17,14 +17,13 @@ function Marvelapi() {
        console.log(err)})
        
       /* .finally(()=>setLoading(false)) */
-    },2000)
-    console.log()
-    return (
+    /* },2000) */
+    /* console.log() */
+    /* return (
         <div>
-            {Hero.map(heroe => <div> <li>{heroe.description}</li>
-                              <li><img src={`${heroe.thumbnail.path}.${heroe.thumbnail.extension}`}  alt={heroe.name} /></li> </div>)}
+            {Hero.map(heroe => 
         </div>
-    )
-}
+    ) */
+/* }
 
-export default Marvelapi
+export default Marvelapi  */

@@ -21,7 +21,7 @@ function NavBar() {
                  <Link to="/categoria/hombre">Hombre</Link>
                  <Link to="/categoria/mujer">Mujer</Link>
                  
-                 <Link to="/detalle">detalle</Link>
+                 
                  <br></br>
                  <Link to="#pricing">Contacto</Link>
                </Nav>
