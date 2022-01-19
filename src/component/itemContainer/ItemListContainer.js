@@ -1,9 +1,10 @@
 
 import { useEffect, useState } from 'react'
 import { llamada } from '../api'
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import ItemList from './ItemList'
-import { Button, Form, FormControl } from 'react-bootstrap'
+import { Button, Form, FormControl, Spinner } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
 
   
@@ -52,10 +53,15 @@ const ListProductos = () =>{
             <Button variant="outline-success">buscar</Button>
           </Form>
           </center>
-            {loading? <h3>Cargando...</h3>
+          <br></br>
+          <br></br>
+          <br></br>
+            {loading? <><Spinner animation="grow" size="sm" />
+  <Spinner animation="grow" />
+  </>
             :
             
-            <ItemList productos={productos}/>
+            <ItemList productos={productos} />
 } 
         </div>
     )

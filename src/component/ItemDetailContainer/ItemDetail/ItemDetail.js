@@ -26,7 +26,7 @@ function ItemDetail({producto}) {
                               <div className='card-body'>
                                 <img src={imagen} alt='1' className='w-50'/>
                               </div>
-                              {/* <ItemsCount stock={stock} onAdd={onAdd}/> */}
+                              <ItemsCount stock={producto.stock} prod={producto}/>
                               </div> 
 
                               
