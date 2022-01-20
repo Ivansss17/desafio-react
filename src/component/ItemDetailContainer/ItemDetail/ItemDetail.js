@@ -4,17 +4,21 @@ import ItemsCount from '../../Contador/itemsCount'
 import { CardImg, CardBody} from 'react-bootstrap'
 import Card from 'react-bootstrap/Card'
 import { Link } from 'react-router-dom'
+import { useCartContext } from '../../cardContext/CardContext'
 /* import {CardBody} from 'react-bootstrap-CardBody'
 import {CardText} from 'react-bootstrap-CardText'
 import {CardTitle} from 'react-bootstrap-CardTitle' */
 
 
 function ItemDetail({producto}) {
+
+  const {agregarAlCarrito} = useCartContext()
     
 const [show, setShow] = useState(true) 
  
 const onAdd= (contador) =>{
   setShow(false)
+  agregarAlCarrito({...producto, cantidad: contador})
  /*  agregarAlCarrito({...producto, cantidad:contador}) */
 }
 
@@ -31,7 +35,7 @@ const onAdd= (contador) =>{
                               {show ? <ItemsCount stock={producto.stock} prod={producto} onAdd={onAdd}/>: 
                               <div>
                                 <Link to='/categoria'><button>Continuar en la Tienda</button></Link>
-                                <Link to='/'><button>Terminar compra</button></Link>
+                                <Link to='/card'><button>Terminar compra</button></Link>
                                 </div>}
                               </div> 
                               {/* <Card style={{ width: '18rem' }}>

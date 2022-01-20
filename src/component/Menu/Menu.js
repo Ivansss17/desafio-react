@@ -10,12 +10,15 @@ import ItemsCount from '../Contador/itemsCount'
 import NavBar from './NavBar'
 import ListProductos from '../itemContainer/ItemListContainer'
 import Marvelapi from '../marvel/marvel-api'
+import { CartContextProvider } from '../cardContext/CardContext'
+import Cart from '../card/card'
 
 
 
 
 function Menu() {
     return (
+        <CartContextProvider>
             <center>
             <BrowserRouter>
             <NavBar/>
@@ -26,12 +29,16 @@ function Menu() {
             <Route exact path='/categoria' element={<ListProductos/>}/>
             <Route exact path='/ItemCount' element={<ItemsCount/>}/>
             <Route exact path='/detalle/:detalleId' element={<ItemDetailContainer/>}/>
+            <Route exact path='/marvel' element={<Marvelapi/>}/>
+            <Route exact path='/card' element={<Cart/>}/>
+            
             
             
          
             </Routes>
             </BrowserRouter>
             </center>
+        </CartContextProvider>
     )
 }
 

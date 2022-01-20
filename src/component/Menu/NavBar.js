@@ -3,6 +3,7 @@ import CardsWidget from './CardsWidget'
 import {Link} from 'react-router-dom'
 import { Container, NavbarBrand, Nav} from 'react-bootstrap'
 import Navbar from 'react-bootstrap/Navbar'
+import FormUser from '../formulario/formUser'
 
 
 function NavBar() {
@@ -20,12 +21,14 @@ function NavBar() {
                 
                  <Link to="/categoria/hombre">Hombre</Link>
                  <Link to="/categoria/mujer">Mujer</Link>
+                 <Link to="/marvel">Marvel</Link>
                  
                  
                  <br></br>
                  <Link to="#pricing">Contacto</Link>
                </Nav>
-               <CardsWidget/>
+               
+               <Link to='/card'><CardsWidget/></Link>
                </Container>
             </Navbar>
              

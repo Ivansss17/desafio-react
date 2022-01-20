@@ -5,11 +5,15 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import './App.css';
 import './menu.css';
 import Menu from './component/Menu/Menu';
+import FormUser from './component/formulario/formUser';
 
 
 function App() {
   return (
+    
     <Menu/>
+    
+    
     /* <div className="App">
       <header className="App-header">
       

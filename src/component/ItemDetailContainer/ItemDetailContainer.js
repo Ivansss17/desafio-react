@@ -1,8 +1,11 @@
 import {useEffect, useState} from "react"
 import { useParams } from "react-router-dom"
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 import { llamada} from '../api'
 import ItemDetail from "./ItemDetail/ItemDetail"
+import { Spinner } from "react-bootstrap"
 
 
 function ItemDetailContainer() {
@@ -32,7 +35,9 @@ function ItemDetailContainer() {
     
     return (
         <div>
-           {loading? <h3>Cargando...</h3>
+           {loading? <><Spinner animation="grow" size="sm" />
+  <Spinner animation="grow" />
+  </>
             :
            <ItemDetail producto={productos}/>}
         </div>
