@@ -22,23 +22,62 @@ export const CartContextProvider = ({children})=>{
             let cantNew = cant + items.cantidad
 
             cartList[indice].cantidad = cantNew
+            
 
             let array = [...cartList]
             setCartList(array)
         } else{
             setCartList([...cartList, items])
         }
+       // subTotalItems(items)
         
     }
+   function sumaTotal(items){
+    
+    const total = cartList.reduce((prev, cart) => prev + cart.precio * cart.cantidad , 0)
+
+    return total
+    
+
+    /* console.log(subTotal) */
+
+   
+    }
+
+        function subTotal(id){
+            const total1 = (cartList[id].precio * cartList[id].cantidad)
+
+            return total1
+    }
+
+    
+
+
+
+
+    function eliminarItem(id){
+        const filterItem = cartList.filter((producto) => producto.id !== id)
+        setCartList(filterItem)
+    }
+    
+    
+   
     function vaciarCarrito (){
         setCartList([])
     }
+
+    /* function sumaParcial(){
+        const totalProducto = items.cantidad * items.precio
+     } */
     console.log(cartList)
     return(
         <CartContext.Provider value={{
             cartList,
             agregarAlCarrito,
-            vaciarCarrito
+            vaciarCarrito,
+            sumaTotal,
+            subTotal,
+            eliminarItem
         }}>
             {children}
         </CartContext.Provider>

@@ -38,7 +38,7 @@ function ItemsCount({stock, prod, onAdd}) {
     } */
     return (
         <div>
-            <h3>cantidad {count}</h3>
+            <h3>Cantidad {count}</h3>
             <button onClick={restar}>-</button>
             {/* <button onClick={agregar}>Agregar a carrito</button> */}
             <button onClick={()=>onAdd(count)}>Agregar a carrito</button>

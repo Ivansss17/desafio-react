@@ -12,14 +12,15 @@ import {CardTitle} from 'react-bootstrap-CardTitle' */
 
 function ItemDetail({producto}) {
 
-  const {agregarAlCarrito} = useCartContext()
+  const {agregarAlCarrito,subTotal} = useCartContext()
     
 const [show, setShow] = useState(true) 
  
 const onAdd= (contador) =>{
   setShow(false)
   agregarAlCarrito({...producto, cantidad: contador})
- /*  agregarAlCarrito({...producto, cantidad:contador}) */
+  
+
 }
 
     return (
