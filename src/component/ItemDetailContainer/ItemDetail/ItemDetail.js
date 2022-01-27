@@ -28,10 +28,10 @@ const onAdd= (contador) =>{
        <div key={producto.id} className='col-md-4'>
                             <div className='card w-50 mt -5'>
                               <div className='card-header'>
-                                {`Producto: ${producto.nombre} - stock: ${producto.stock} - Precio: ${producto.precio}`}
+                                {`Producto: ${producto.nombre} - Stock: ${producto.stock} - Precio: ${producto.precio}`}
                               </div>
                               <div className='card-body'>
-                                <img src={imagen} alt='1' className='w-50'/>
+                                <img src={producto.imageUrl} alt='1' className='w-50'/>
                               </div>
                               {show ? <ItemsCount stock={producto.stock} prod={producto} onAdd={onAdd}/>: 
                               <div>

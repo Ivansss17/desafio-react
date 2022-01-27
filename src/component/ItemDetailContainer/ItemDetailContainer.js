@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { llamada} from '../api'
 import ItemDetail from "./ItemDetail/ItemDetail"
 import { Spinner } from "react-bootstrap"
+import { doc, getFirestore, getDoc } from "firebase/firestore"
 
 
 function ItemDetailContainer() {
@@ -17,19 +18,19 @@ function ItemDetailContainer() {
 
   
     useEffect(()=>{
-       if (detalleId){
-        llamada 
-        
-        .then((resp) => 
-            setProductos(resp.find(prod => prod.nombre === detalleId))
-                
-          )
-          .finally(()=>setLoading(false))
-       
-       }
+  
+      const db = getFirestore ()
+      const queryProducts = doc(db, 'productos', detalleId)
+      getDoc (queryProducts)
+      .then ((resp) => setProductos({id: resp.id, ...resp.data()}))
+
+      setLoading(false)
+  
+  
+  
+  
+  
      
-        
-      
       
       },[detalleId])
     

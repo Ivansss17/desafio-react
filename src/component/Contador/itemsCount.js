@@ -2,14 +2,15 @@ import React from 'react'
 import { useState } from 'react'
 
 function ItemsCount({stock, prod, onAdd}) {
-    const btnMas = true
-    const resta = true
+    /* const btnMas = true
+    const resta = true */
     const [count, setCount] = useState(1)
     
     const sumar = () => {
         if (stock != 0 & count<= stock-1 ){
         setCount(count +1)
         console.log(count)
+        console.log(prod)
 
     }}
     const restar = ()=>{
@@ -19,6 +20,7 @@ function ItemsCount({stock, prod, onAdd}) {
     }}
     const agregar = ()=>{
         alert('Usted agrego: '+' '+ count + ' ' + prod.nombre +'/s' )
+        console.log(prod)
         
     }
    
