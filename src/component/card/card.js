@@ -1,3 +1,4 @@
+import { addDoc, collection, getFirestore } from "firebase/firestore";
 import { Link } from "react-router-dom";
 import { useCartContext } from "../cardContext/CardContext";
 import imagen from './imagen.png'
@@ -8,6 +9,29 @@ import imagen from './imagen.png'
 
 const Cart = () => {
     const {cartList ,vaciarCarrito, eliminarItem, sumaTotal, subTotal} = useCartContext ()
+
+    const realizarCompra = async () => {
+
+      let orden = {}
+
+      orden.buyer = {nombre: 'ivan' , email:'ivan@ivan.com', tel:'123456'}
+      orden.total = sumaTotal()
+
+      orden.items = cartList.map(cartItem =>{
+        const id = cartItem.id
+        const nombre = cartItem.nombre
+        const cantidad = cartItem.cantidad
+        const precio = cartItem.precio * cartItem.cantidad
+
+        return {id, nombre, cantidad, precio}
+      })
+        console.log(orden)
+        const db = getFirestore()
+        const ordenCollection = collection (db , 'ordenes')
+        await addDoc (ordenCollection, orden)
+        .then (resp=> console.log(resp))
+
+    }
 
     return(
       
@@ -42,6 +66,7 @@ const Cart = () => {
                               <div>
                               <Link to='/categoria'><button>Continuar en la Tienda</button></Link>
                               <button onClick={vaciarCarrito}>vaciarCarrito</button>
+                              <button onClick={realizarCompra}>Realizar Compra</button>
                               <div><h3>Total : {sumaTotal()}</h3></div>
                                 </div>
           </>   
