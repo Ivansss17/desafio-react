@@ -1,6 +1,8 @@
 import { addDoc, collection, getFirestore } from "firebase/firestore";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCartContext } from "../cardContext/CardContext";
+import Resumen from "../Resumen/Resumen";
 import imagen from './imagen.png'
 
 
@@ -9,12 +11,20 @@ import imagen from './imagen.png'
 
 const Cart = () => {
     const {cartList ,vaciarCarrito, eliminarItem, sumaTotal, subTotal} = useCartContext ()
+    const [condicional, setCondicional] = useState(false)
+    const [ordenId, setOrdenId] = useState({});
+    const  [dataForm, setDataForm] = useState({
+      nombre:'',
+      email:'',
+      email2:'',
+      tel:''
+    })
 
-    const realizarCompra = async () => {
-
+    const realizarCompra = async (e) => {
+      e.preventDefault()
       let orden = {}
 
-      orden.buyer = {nombre: 'ivan' , email:'ivan@ivan.com', tel:'123456'}
+      orden.buyer = dataForm
       orden.total = sumaTotal()
 
       orden.items = cartList.map(cartItem =>{
@@ -24,17 +34,35 @@ const Cart = () => {
         const precio = cartItem.precio * cartItem.cantidad
 
         return {id, nombre, cantidad, precio}
+        
       })
         console.log(orden)
         const db = getFirestore()
         const ordenCollection = collection (db , 'ordenes')
         await addDoc (ordenCollection, orden)
-        .then (resp=> console.log(resp))
+        .then (resp=> setOrdenId(resp.id))
+        .catch (err => console.log(err))
+        .finally (()=> setDataForm({nombre:'',
+        email:'',
+        email2:'',
+        tel:''},vaciarCarrito(),setCondicional(true) ))
+       
+
+    }
+
+    function handlechange (e){
+
+      setDataForm({
+        ...dataForm,
+      [e.target.name] : e.target.value
+      })
 
     }
 
     return(
-      
+      <>{ condicional ?
+           <Resumen idOrden={ordenId} />
+           :
         <>
            {cartList.length === 0 ? (
              <div>
@@ -59,19 +87,68 @@ const Cart = () => {
                               <div>
                               <button onClick={() =>eliminarItem(prod.id)}>Eliminar item</button>
                               </div>
-                              <div><h3>Total : {()=>subTotal(prod.id)}</h3></div>
+                             {/*  <div><h3>Total : {()=>subTotal(prod.id)}</h3></div> */}
                                 </div>
                               </div> 
                               )}
                               <div>
                               <Link to='/categoria'><button>Continuar en la Tienda</button></Link>
+                                <form onSubmit={realizarCompra}>
+                                     <input name="nombre" 
+                                        type="text" 
+                                        placeholder="ingrese su nombre" 
+                                        onChange={handlechange}
+                                        value={dataForm.nombre}/>
+                                        <br></br>
+        
+        
+                                      <input 
+                                          name="email" 
+                                          type="email" 
+                                          placeholder="@mail.com" 
+                                          onChange={handlechange}
+                                          value={dataForm.email}/>
+                                      <br></br>
+
+                                      <input 
+                                          name="email2" 
+                                          type="email" 
+                                          placeholder="@mail.com" 
+                                          onChange={handlechange}
+                                          value={dataForm.email2}/>
+
+                                      <br></br>
+                                      <input 
+                                          name="tel" 
+                                          type="tel"
+                                          placeholder="tel"
+                                          onChange={handlechange}
+                                          value={dataForm.tel}/>     
+                                      <br></br>                                 
+                                      <button>Generar Orden</button>
+                                      </form> 
+
+
+
                               <button onClick={vaciarCarrito}>vaciarCarrito</button>
                               <button onClick={realizarCompra}>Realizar Compra</button>
                               <div><h3>Total : {sumaTotal()}</h3></div>
                                 </div>
           </>   
-             )}                 
+             )}  
+             <>
+            
+      
+             
+             
+             
+             
+             </>
+
+             
+               
         </>
+       } </>  
     )
 }
 
