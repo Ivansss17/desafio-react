@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCartContext } from "../cardContext/CardContext";
 import Resumen from "../Resumen/Resumen";
-
+import { Formik } from 'formik'
 
 
 
@@ -92,40 +92,67 @@ const Cart = () => {
                               )}
                               <div>
                               <Link to='/categoria'><button>Continuar en la Tienda</button></Link>
-                                <form onSubmit={realizarCompra}>
-                                     <input name="nombre" 
-                                        type="text" 
-                                        placeholder="ingrese su nombre" 
-                                        onChange={handlechange}
-                                        value={dataForm.nombre}/>
-                                        <br></br>
-        
-        
-                                      <input 
-                                          name="email" 
-                                          type="email" 
-                                          placeholder="@mail.com" 
-                                          onChange={handlechange}
-                                          value={dataForm.email}/>
-                                      <br></br>
+                              <Formik
+                              validate={(valores )=>{
+                                let errores = {}
 
-                                      <input 
-                                          name="email2" 
-                                          type="email" 
-                                          placeholder="@mail.com" 
-                                          onChange={handlechange}
-                                          value={dataForm.email2}/>
+                                if(!valores){
+                                  errores.nombre = 'por favor ingrese un nombre'
+                                  errores.email = 'por favor ingrese un correo'
+                                  errores.tel = 'por favor ingrese un numero de telefono'
+                                  
+                                }
+                                return errores
+                              }}
+                              >
+                                {({ handleBlur, errors})=>(
+                                  <form onSubmit={realizarCompra}>
+                                    
+                                  <input name="nombre" 
+                                     type="text" 
+                                     placeholder="ingrese su nombre" 
+                                     onChange={handlechange}
+                                     value={dataForm.nombre}
+                                     
+                                     onBlur={handleBlur}/>
+                                     {errors.nombre && <div>{errors.nombre}</div>}
+                                     <br></br>
+     
+     
+                                   <input 
+                                       name="email" 
+                                       type="email" 
+                                       placeholder="@mail.com" 
+                                       onChange={handlechange}
+                                       value={dataForm.email}
+                                       onBlur={handleBlur}/>
+                                       {errors.email && <div>{errors.email}</div>}
+                                   <br></br>
 
-                                      <br></br>
-                                      <input 
-                                          name="tel" 
-                                          type="tel"
-                                          placeholder="tel"
-                                          onChange={handlechange}
-                                          value={dataForm.tel}/>     
-                                      <br></br>                                 
-                                      <button>Generar Orden</button>
-                                      </form>
+                                   <input 
+                                       name="email2" 
+                                       type="email" 
+                                       placeholder="@mail.com" 
+                                       onChange={handlechange}
+                                       value={dataForm.email2}
+                                       onBlur={handleBlur}/>
+                                       {errors.email && <div>{errors.email}</div>}
+
+                                   <br></br>
+                                   <input 
+                                       name="tel" 
+                                       type="tel"
+                                       placeholder="tel"
+                                       onChange={handlechange}
+                                       value={dataForm.tel}
+                                       onBlur={handleBlur}/> 
+                                       {errors.tel && <div>{errors.tel}</div>}    
+                                   <br></br>                                 
+                                   <button>Generar Orden</button>
+                                   </form>
+                                )}
+                                
+                                      </Formik>
                               <button onClick={vaciarCarrito}>vaciarCarrito</button>
                               <div><h3>Total : {sumaTotal()}</h3></div>
                               

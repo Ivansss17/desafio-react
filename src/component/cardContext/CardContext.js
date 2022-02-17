@@ -12,7 +12,7 @@ export function useCartContext () {
 export const CartContextProvider = ({children})=>{
     //estados y funciones globales
     const [cartList, setCartList] = useState([])
-    /* const [cartCant, setCartCant] = useState([]) */
+    
 
     function agregarAlCarrito (items){
         const indice = cartList.findIndex(i => i.id === items.id)
@@ -67,7 +67,7 @@ export const CartContextProvider = ({children})=>{
 
     
     
-    console.log(cartList)
+    
     return(
         <CartContext.Provider value={{
             cartList,

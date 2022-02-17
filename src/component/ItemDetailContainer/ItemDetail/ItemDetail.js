@@ -7,7 +7,7 @@ import { useCartContext } from '../../cardContext/CardContext'
 
 function ItemDetail({producto}) {
 
-  const {agregarAlCarrito,subTotal} = useCartContext()
+  const {agregarAlCarrito} = useCartContext()
     
 const [show, setShow] = useState(true) 
  

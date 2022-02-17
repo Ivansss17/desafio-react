@@ -1,7 +1,7 @@
 
 import { useState } from 'react'
 
-function ItemsCount({stock, prod, onAdd}) {
+function ItemsCount({stock, onAdd}) {
    
     const [count, setCount] = useState(1)
     
