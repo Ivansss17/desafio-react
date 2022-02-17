@@ -1,4 +1,3 @@
-import React from 'react'
 import CardsWidget from './CardsWidget'
 import { Container, Nav} from 'react-bootstrap'
 import Navbar from 'react-bootstrap/Navbar'

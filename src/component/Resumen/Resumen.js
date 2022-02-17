@@ -1,7 +1,7 @@
-import { collection, doc, getDoc, getDocs, getFirestore, query, where } from 'firebase/firestore';
+import {doc, getDoc, getFirestore } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
 import { Card } from 'react-bootstrap';
-import ItemsCount from '../Contador/itemsCount';
+
 
 function Resumen({idOrden}) {
    
@@ -10,7 +10,6 @@ function Resumen({idOrden}) {
     const db = getFirestore ()
     const queryOrden = doc(db, 'ordenes', idOrden,)
     getDoc (queryOrden)
-        //.then ((resp) => console.log(resp))
        .then ((resp) => setOrden({id: resp.id, ...resp.data()}))
   
       

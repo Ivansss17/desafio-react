@@ -1,4 +1,3 @@
-import React from 'react'
 import { useCartContext } from '../cardContext/CardContext'
 import imagen from '../img/2.png'
 function CardsWidget() {

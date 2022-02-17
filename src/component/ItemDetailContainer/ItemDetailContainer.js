@@ -2,8 +2,6 @@ import {useEffect, useState} from "react"
 import { useParams } from "react-router-dom"
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import 'bootstrap/dist/css/bootstrap.min.css'
-
-
 import ItemDetail from "./ItemDetail/ItemDetail"
 import { Spinner } from "react-bootstrap"
 import { doc, getFirestore, getDoc } from "firebase/firestore"
@@ -25,15 +23,9 @@ function ItemDetailContainer() {
       .then ((resp) => setProductos({id: resp.id, ...resp.data()}))
 
       setLoading(false)
-  
-  
-  
-  
-  
-     
-      
+
       },[detalleId])
-      console.log(productos);
+      
     
     return (
         <div>

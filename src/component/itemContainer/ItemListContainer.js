@@ -36,7 +36,7 @@ const ListProductos = () =>{
         .finally(()=>setLoading(false))
       }
     
-    /* setLoading(false)   */
+ 
       
       },[categoriaId])
 
@@ -56,22 +56,3 @@ const ListProductos = () =>{
 }
 export default ListProductos
 
-
-
-
-
-/* if (categoriaId){
-  llamada 
-  
-  .then((resp) => 
-      setProductos(resp.filter(prod => prod.categoria === categoriaId))
-          
-    )
-    .finally(()=>setLoading(false))
- }else {
-  llamada 
-  .then((resp) => 
-  setProductos(resp))
-  .catch((err) => console.log(err))
-.finally(()=>setLoading(false))
- } */

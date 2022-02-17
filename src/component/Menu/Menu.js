@@ -3,9 +3,6 @@ import React from 'react'
 
 
 import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer'
-
-
-
 import ItemsCount from '../Contador/itemsCount'
 import NavBar from './NavBar'
 import ListProductos from '../itemContainer/ItemListContainer'
@@ -29,10 +26,6 @@ function Menu() {
             <Route exact path='/ItemCount' element={<ItemsCount/>}/>
             <Route exact path='/detalle/:detalleId' element={<ItemDetailContainer/>}/>
             <Route exact path='/card' element={<Cart/>}/>
-            
-            
-            
-         
             </Routes>
             </BrowserRouter>
             </center>

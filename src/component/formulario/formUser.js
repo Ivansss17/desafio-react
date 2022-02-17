@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { Form } from 'react-bootstrap';
 
 function FormUser() {
@@ -20,8 +20,6 @@ const handleSubmit = () =>{
     alert( `Hola ${nombre}  ${correo}`)
 }
 
-console.log(nombre)
-console.log(correo)
 
   return <div>
             <h3>Formulario de ingreso</h3>

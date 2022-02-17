@@ -1,8 +1,8 @@
-import React from 'react'
+
 import  { Button, ModalBody, ModalFooter,  ModalTitle,  }  from  'react-bootstrap'
 import Modal from 'react-bootstrap/Modal'
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 import ModalHeader from 'react-bootstrap/esm/ModalHeader'
 function Example() {

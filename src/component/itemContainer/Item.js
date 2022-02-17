@@ -1,7 +1,5 @@
-import imagen from '../img/imagen.png'
 import  { Button, ModalBody, ModalFooter,  ModalTitle,  }  from  'react-bootstrap'
 import Modal from 'react-bootstrap/Modal'
-import ModalHeader from 'react-bootstrap/esm/ModalHeader'
 import {useState} from 'react'
 import { Link } from 'react-router-dom'
 
@@ -13,8 +11,6 @@ function Item({prod}) {
  
     return (
       
-    
-
         <>
        
          <div key={prod.id} className='col-md-4'>

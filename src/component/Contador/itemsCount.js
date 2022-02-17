@@ -8,8 +8,7 @@ function ItemsCount({stock, prod, onAdd}) {
     const sumar = () => {
         if (stock != 0 & count<= stock-1 ){
         setCount(count +1)
-        console.log(count)
-    
+          
 
     }}
     const restar = ()=>{
