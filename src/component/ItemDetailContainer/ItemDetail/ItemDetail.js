@@ -5,9 +5,6 @@ import { CardImg, CardBody} from 'react-bootstrap'
 import Card from 'react-bootstrap/Card'
 import { Link } from 'react-router-dom'
 import { useCartContext } from '../../cardContext/CardContext'
-/* import {CardBody} from 'react-bootstrap-CardBody'
-import {CardText} from 'react-bootstrap-CardText'
-import {CardTitle} from 'react-bootstrap-CardTitle' */
 
 
 function ItemDetail({producto}) {
@@ -20,42 +17,30 @@ const onAdd= (contador) =>{
   setShow(false)
   agregarAlCarrito({...producto, cantidad: contador})
   
+  
 
 }
 
     return (
         
-       <div key={producto.id} className='col-md-4'>
-                            <div className='card w-50 mt -5'>
-                              <div className='card-header'>
-                                {`Producto: ${producto.nombre} - Stock: ${producto.stock} - Precio: ${producto.precio}`}
-                              </div>
-                              <div className='card-body'>
-                                <img src={producto.imageUrl} alt='1' className='w-50'/>
-                              </div>
-                              {show ? <ItemsCount stock={producto.stock} prod={producto} onAdd={onAdd}/>: 
+
+ <>
+ <Card key={producto.id} style={{ width: '18rem' }}>
+  <Card.Img variant="top" src={producto.imageUrl} />
+  <Card.Body>
+    <Card.Title>{producto.nombre}</Card.Title>
+    <Card.Text>
+    {`Producto: ${producto.nombre} - Stock: ${producto.stock} - Precio: ${producto.precio}`}
+    </Card.Text>
+    
+  </Card.Body>
+  {show ? <ItemsCount stock={producto.stock} prod={producto} onAdd={onAdd}/>: 
                               <div>
                                 <Link to='/categoria'><button>Continuar en la Tienda</button></Link>
                                 <Link to='/card'><button>Terminar compra</button></Link>
                                 </div>}
-                              </div> 
-                              {/* <Card style={{ width: '18rem' }}>
-  <CardImg variant="top" src="holder.js/100px180" />
-  <CardBody>
-    <CardTitle>Card Title</CardTitle>
-    <CardText>
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
-    </CardText>
-    <Button variant="primary">Go somewhere</Button>
-  </CardBody>
-</Card> */}
-                              
-                               
-  
-
-
-    </div> 
+</Card>
+ </>
    
 
     )

@@ -12,6 +12,7 @@ export function useCartContext () {
 export const CartContextProvider = ({children})=>{
     //estados y funciones globales
     const [cartList, setCartList] = useState([])
+    /* const [cartCant, setCartCant] = useState([]) */
 
     function agregarAlCarrito (items){
         const indice = cartList.findIndex(i => i.id === items.id)
@@ -29,7 +30,7 @@ export const CartContextProvider = ({children})=>{
         } else{
             setCartList([...cartList, items])
         }
-       // subTotalItems(items)
+    
         
     }
    function sumaTotal(items){
@@ -37,17 +38,15 @@ export const CartContextProvider = ({children})=>{
     const total = cartList.reduce((prev, cart) => prev + cart.precio * cart.cantidad , 0)
 
     return total
-    
-
-    /* console.log(subTotal) */
-
-   
+       
     }
 
-        function subTotal(id){
-            const total1 = (cartList[id].precio * cartList[id].cantidad)
+    function cantidadItems(items){
 
-            return total1
+        const cantTotal = cartList.reduce((prev, cart) => prev + cart.cantidad , 0)
+
+    return cantTotal
+
     }
 
     
@@ -66,9 +65,8 @@ export const CartContextProvider = ({children})=>{
         setCartList([])
     }
 
-    /* function sumaParcial(){
-        const totalProducto = items.cantidad * items.precio
-     } */
+    
+    
     console.log(cartList)
     return(
         <CartContext.Provider value={{
@@ -76,7 +74,7 @@ export const CartContextProvider = ({children})=>{
             agregarAlCarrito,
             vaciarCarrito,
             sumaTotal,
-            subTotal,
+            cantidadItems,
             eliminarItem
         }}>
             {children}
@@ -85,8 +83,3 @@ export const CartContextProvider = ({children})=>{
     )
 }
 
-/* function CartContext() {
-  return <div></div>;
-}
-
-export default CartContext; */

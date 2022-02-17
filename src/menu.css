@@ -27,7 +27,7 @@
     
 }
 .navMenu li:hover{
-    background-color: white;
+    background-color: black;
     color: black;
     border-radius: 5px;
 }

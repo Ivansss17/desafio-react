@@ -1,9 +1,8 @@
 import React from 'react'
 import CardsWidget from './CardsWidget'
-import {Link} from 'react-router-dom'
-import { Container, NavbarBrand, Nav} from 'react-bootstrap'
+import { Container, Nav} from 'react-bootstrap'
 import Navbar from 'react-bootstrap/Navbar'
-import FormUser from '../formulario/formUser'
+
 
 
 function NavBar() {
@@ -11,24 +10,17 @@ function NavBar() {
   return (  
        
             <div className='divMenu'>
-            <h2>Bienvenidos a la tienda virtual</h2>
+            
             <Navbar bg="dark" variant="dark" sticky="top">
                <Container>
-               <NavbarBrand href="#home">E-commerce</NavbarBrand>
+               <Navbar.Brand href="#home">E-commerce</Navbar.Brand>
                <Nav className="me-auto">
-                 <Link to="/">Home</Link>
-                 <Link to="/categoria">Categorias</Link>
-                
-                 <Link to="/categoria/hombre">Hombre</Link>
-                 <Link to="/categoria/mujer">Mujer</Link>
-                 <Link to="/marvel">Marvel</Link>
-                 
-                 
-                 <br></br>
-                 <Link to="#pricing">Contacto</Link>
+                 <Nav.Link href="/">Home</Nav.Link>
+                 <Nav.Link href="/categoria">Categorias</Nav.Link>
+                 <Nav.Link href="/categoria/hombre">Hombre</Nav.Link>
+                 <Nav.Link href="/categoria/mujer">Mujer</Nav.Link>
                </Nav>
-               
-               <Link to='/card'><CardsWidget/></Link>
+               <Nav.Link href='/card'><CardsWidget/></Nav.Link>
                </Container>
             </Navbar>
              

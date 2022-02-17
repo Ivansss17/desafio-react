@@ -3,14 +3,14 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCartContext } from "../cardContext/CardContext";
 import Resumen from "../Resumen/Resumen";
-import imagen from './imagen.png'
+
 
 
 
 
 
 const Cart = () => {
-    const {cartList ,vaciarCarrito, eliminarItem, sumaTotal, subTotal} = useCartContext ()
+    const {cartList ,vaciarCarrito, eliminarItem, sumaTotal} = useCartContext ()
     const [condicional, setCondicional] = useState(false)
     const [ordenId, setOrdenId] = useState({});
     const  [dataForm, setDataForm] = useState({
@@ -36,7 +36,7 @@ const Cart = () => {
         return {id, nombre, cantidad, precio}
         
       })
-        console.log(orden)
+        
         const db = getFirestore()
         const ordenCollection = collection (db , 'ordenes')
         await addDoc (ordenCollection, orden)
@@ -87,7 +87,6 @@ const Cart = () => {
                               <div>
                               <button onClick={() =>eliminarItem(prod.id)}>Eliminar item</button>
                               </div>
-                             {/*  <div><h3>Total : {()=>subTotal(prod.id)}</h3></div> */}
                                 </div>
                               </div> 
                               )}
@@ -126,13 +125,10 @@ const Cart = () => {
                                           value={dataForm.tel}/>     
                                       <br></br>                                 
                                       <button>Generar Orden</button>
-                                      </form> 
-
-
-
+                                      </form>
                               <button onClick={vaciarCarrito}>vaciarCarrito</button>
-                              <button onClick={realizarCompra}>Realizar Compra</button>
                               <div><h3>Total : {sumaTotal()}</h3></div>
+                              
                                 </div>
           </>   
              )}  
